@@ -10,26 +10,30 @@ export function TawCard(props: Props) {
     return (
         <div className={"taw-card"}>
             {selection ? [
-                <div className={"m-5 d-flex flex-row flex-wrap text-start"}>
-                    <p className={"german"}>
+                <div className={"m-5 d-flex flex-column flex-wrap text-start"}>
+                    <div className={"german"}>
                         <span className={"label"}>Deutsch:</span>
-                        <span className={"content"}> {selection?.german}</span>
-                    </p>
-                    <p className={"tawandaki"}>
-                        <span className={"label"}>Tawandaki:</span>
-                        <span className={"content"}> {selection?.tawandaki}</span>
-                        <i> ({selection?.pronunciation})</i>
-                    </p>
-                    <p className={"meaning"}>
+                        <span className={"content content-bold"}>{selection?.german}</span>
+                    </div>
+                    <div className={"d-flex flex-row tawandaki"}>
+                        <div className={"label"}>Tawandaki:</div>
+                        <div className={"content"}>
+                            <span className={"content-bold me-2"}>{selection?.tawandaki}</span>
+                            <wbr />
+                            <span className={"pronunciation"}>({selection?.pronunciation})</span>
+                        </div>
+
+                    </div>
+                    <div className={"mt-3"}>
                         <span className={"label"}>Bedeutung:</span>
-                        <span> {selection?.meaning}</span>
-                    </p>
-                    {/*{selection?.trivia ? [*/}
-                        <p className={"trivia"}>
+                        <span className={"content"}>{selection?.meaning}</span>
+                    </div>
+                    {selection?.trivia ? [
+                        <div className={"mt-2 trivia"}>
                             <span className={"label"}>Trivia:</span>
-                            <span> {selection?.trivia}</span>
-                        </p>
-                    {/*] : []}*/}
+                            <span className={"content"}>{selection?.trivia}</span>
+                        </div>
+                    ] : []}
                 </div>
             ] : []}
         </div>
